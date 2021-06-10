@@ -1,0 +1,10 @@
+.link-input {
+  width: 200px;
+  height: 25px;
+  border-right: none;
+}
+
+.generate-btn {
+  height: 31px;
+  background-color: #b9ffb9;
+}
