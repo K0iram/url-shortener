@@ -1,10 +1,20 @@
-.link-input {
-  width: 200px;
-  height: 25px;
-  border-right: none;
+.input-container {
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 150px;
 }
 
-.generate-btn {
-  height: 31px;
-  background-color: #b9ffb9;
+.link-input {
+  max-width: 500px;
+  width: 90%
+}
+
+.link-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

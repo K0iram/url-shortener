@@ -23,6 +23,7 @@ export const getShortUrl = (url, setUrl, setShortUrl, setLoading, setError) => {
         }, 2000)
     })
     .catch((err) => {
+      setLoading(false)
       setError(err.response.data.description)
     })
   }

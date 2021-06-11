@@ -1,4 +1,6 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import './index.css'
 
 const LinkForm = ({getShortUrl, setShortUrl, setUrl, url, setLoading, setError, error, shortUrl}) => {
@@ -17,10 +19,9 @@ const LinkForm = ({getShortUrl, setShortUrl, setUrl, url, setLoading, setError, 
   return (
     <form className="link-form" onSubmit={onSubmitUrl}>
       <div className="input-container">
-        <input className="link-input" type="text" value={url} onChange={onChangeUrl}/>
-        <button className="generate-btn" type="submit">Generate</button>
+        <TextField label="Long URL" variant="outlined" value={url} onChange={onChangeUrl} helperText={error} error={!!error} className="link-input"/>
+        <Button size="large" type="submit" variant="contained" color="primary">Generate</Button>
       </div>
-        {error && <span style={{color: 'red'}}>{error}</span>}
     </form>
   );
 };

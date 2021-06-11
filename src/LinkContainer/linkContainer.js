@@ -2,16 +2,22 @@ import React, { useState } from 'react';
 import LinkForm from '../LinkContainer/LinkForm'
 import LinkDisplay from '../LinkContainer/LinkDisplay'
 import { getShortUrl } from '../API/getShortUrl'
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import './index.css'
 
 const LinkContainer = () => {
   const [shortUrl, setShortUrl] = useState('')
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [open, setOpen] = useState(false)
 
   return (
-    <div>
-      <h1>Link Shorten</h1>
+    <Paper className="container">
+      <Typography variant="h2" gutterBottom>
+        Link Shortener
+      </Typography>
       <LinkForm
         getShortUrl={getShortUrl}
         setUrl={setUrl}
@@ -22,13 +28,14 @@ const LinkContainer = () => {
         shortUrl={shortUrl}
         error={error}
       />
-      {loading &&
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
-      }
-      {shortUrl &&
-        <LinkDisplay shortUrl={shortUrl} setShortUrl={setShortUrl}/>
-      }
-    </div>
+      <LinkDisplay
+        setOpen={setOpen}
+        setShortUrl={setShortUrl}
+        shortUrl={shortUrl}
+        loading={loading}
+        open={open}
+      />
+    </Paper>
   );
 }
 
